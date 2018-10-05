@@ -28,7 +28,7 @@ namespace LuckyCarrot.Controllers
 
             model.Reasons = reasons.ToDictionary(p => p.Id, pp => pp.Name);
             model.Users = users.ToDictionary(p => p.Id, pp => pp.FirstName + " " + pp.LastName);
-
+            model.ActiveUser = users.FirstOrDefault(s => s.Id == 2);
             return View(model);
         }
 
