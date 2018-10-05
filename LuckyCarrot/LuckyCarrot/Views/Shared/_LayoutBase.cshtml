@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] | Lucky Carrot</title>
+    @RenderSection("fonts", required: false)
+    <environment include="Development">
+        <link href="~/css/animate.min.css" rel="stylesheet" />
+        <link href="~/css/jquery.mCustomScrollbar.min.css" rel="stylesheet" />
+        <link href="~/lib/material-design-iconic-font/dist/css/material-design-iconic-font.css" rel="stylesheet" />
+        <link href="~/css/app_1.min.css" rel="stylesheet" />
+        <link href="~/css/app_2.min.css" rel="stylesheet" />
+
+        <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+        @*<link href="~/css/site.css" rel="stylesheet" />*@
+
+    </environment>
+    <environment exclude="Development">
+       
+    </environment>
+    @RenderSection("css", required: false)
+</head>
+<body>
+    @RenderBody()
+   
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        @*<script src="~/lib/jquery-ajax-unobtrusive/src/jquery.unobtrusive-ajax.js"></script>*@
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+        @*<script src="~/js/jquery.mCustomScrollbar.concat.min.js"></script>*@
+
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js"></script>
+    </environment>
+    <environment exclude="Development">
+        @*<script src="~/bundles/js/jquery.min.js"></script>
+        <script src="~/bundles/js/jqueryval.min.js"></script>
+        <script src="~/bundles/js/bootstrap.min.js"></script>
+        <script src="~/bundles/js/layout.min.js"></script>
+        <script src="~/bundles/js/custom.js"></script>*@
+    </environment>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
