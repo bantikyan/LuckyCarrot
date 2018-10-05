@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2041
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuckyCarrot", "LuckyCarrot\LuckyCarrot.csproj", "{7D38FC80-10ED-422C-BFE0-4D4C75839E0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LuckyCarrot", "LuckyCarrot\LuckyCarrot.csproj", "{7D38FC80-10ED-422C-BFE0-4D4C75839E0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{A3D097A0-C635-4F4F-9CBE-3419F074B437}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModels", "DataModels\DataModels.csproj", "{B48FC470-1C0E-4D7C-904F-5D68889EFF06}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{7D38FC80-10ED-422C-BFE0-4D4C75839E0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D38FC80-10ED-422C-BFE0-4D4C75839E0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D38FC80-10ED-422C-BFE0-4D4C75839E0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3D097A0-C635-4F4F-9CBE-3419F074B437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3D097A0-C635-4F4F-9CBE-3419F074B437}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3D097A0-C635-4F4F-9CBE-3419F074B437}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3D097A0-C635-4F4F-9CBE-3419F074B437}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B48FC470-1C0E-4D7C-904F-5D68889EFF06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B48FC470-1C0E-4D7C-904F-5D68889EFF06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B48FC470-1C0E-4D7C-904F-5D68889EFF06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B48FC470-1C0E-4D7C-904F-5D68889EFF06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
