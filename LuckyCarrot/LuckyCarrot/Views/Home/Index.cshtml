@@ -1,6 +1,9 @@
 ﻿@model DataModels.WallModel
 @{
     ViewData["Title"] = "Home Page";
+    var colors = new List<string> { "#00897b", "#607d8b", "#3f51b5", "#4caf50", "#ff5722" };
+    var rand = new Random();
+    rand.Next();
 }
 
 <div class="row wall">
@@ -34,17 +37,17 @@
 
                 <div class="card-body card-padding">
                     <p>
-                        @item.Points @@@Model.Users.FirstOrDefault(s => s.Key == item.FromUserId).Value "@Model.Reasons.FirstOrDefault(s => s.Key == item.ReasonId).Value"
+                        @item.Points @@@Model.Users[item.FromUserId] "@Model.Reasons[item.ReasonId]"
                         Note :  @item.Note
                     </p>
 
+
                     <div class="wi-preview lightbox clearfix">
-                        <img src="~/images/headers4.png" class="img-responsive" />
-                        @*<div class="wip-item" data-src="~/images/headers4.png"
-                                 style="background-image: url(~/images/headers4.png);">
-                                <div class="lightbox-item"></div>
-                            </div>*@
-                        /**/
+                        <div style="background-color: @(colors.OrderBy(p => rand.Next()).FirstOrDefault()); min-height: 200px; color: #fff; padding-top: 20px;">
+                            <img src="~/images/carrot.png" />
+                            <div style="font-size: 30px;">@item.Points</div>
+                            <div style="vertical-align: middle;">from <span style="font-size: 20px;">@Model.Users[item.FromUserId]</span></div>
+                        </div>
                     </div>
 
                     <div class="wi-stats clearfix">
