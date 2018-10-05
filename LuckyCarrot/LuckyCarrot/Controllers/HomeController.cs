@@ -18,7 +18,6 @@ namespace LuckyCarrot.Controllers
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
-            var aa = "";
 
             return View();
         }
