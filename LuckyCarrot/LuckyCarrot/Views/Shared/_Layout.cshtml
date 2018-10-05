@@ -11,9 +11,9 @@
     @RenderSection("css", required: false)
 }
 
-@Html.Partial("_TopNavbar")
+@await Html.PartialAsync("_TopNavbar")
 <section id="main">
-    @Html.Partial("_Navigation")
+    @await Html.PartialAsync("_Navigation")
     <section id="content">
         @RenderBody()
     </section>

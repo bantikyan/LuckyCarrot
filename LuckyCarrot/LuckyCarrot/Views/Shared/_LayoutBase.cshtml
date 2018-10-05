@@ -12,7 +12,7 @@
         <link href="~/css/app_1.min.css" rel="stylesheet" />
         <link href="~/css/app_2.min.css" rel="stylesheet" />
 
-        <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+        @*<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />*@
         @*<link href="~/css/site.css" rel="stylesheet" />*@
 
     </environment>
@@ -26,13 +26,13 @@
    
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
         @*<script src="~/lib/jquery-ajax-unobtrusive/src/jquery.unobtrusive-ajax.js"></script>*@
         <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
-        @*<script src="~/js/jquery.mCustomScrollbar.concat.min.js"></script>*@
+        <script src="~/js/jquery.mCustomScrollbar.concat.min.js"></script>
 
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js"></script>
+        <script src="~/js/app.js"></script>
     </environment>
     <environment exclude="Development">
         @*<script src="~/bundles/js/jquery.min.js"></script>
