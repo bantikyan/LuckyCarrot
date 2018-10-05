@@ -3,8 +3,6 @@
 }
 @section css {
     <environment include="Development">
-        <link href="~/css/select2.css" rel="stylesheet" />
-        <link href="~/css/select2-materialize.css" rel="stylesheet" />
     </environment>
     <environment exclude="Development">
 
@@ -18,7 +16,14 @@
     <section id="content">
         <select id="UserId" name="UserId" class="form-control singleselect remote" placeholder="Select User"
                 data-url="@Url.Action("UserDDL", "Home")"
-                data-param-companyId="1"></select>
+                data-param-companyId="1">
+        </select>
+
+        <select id="ReasonId" name="ReasonId" class="form-control singleselect remote" placeholder="Select Reason"
+                data-url="@Url.Action("ReasonDDL", "Home")"
+                data-param-companyId="1">
+        </select>
+
         @RenderBody()
     </section>
 </section>
@@ -36,7 +41,6 @@
 @section scripts {
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <environment include="Development">
-        
     </environment>
     <environment exclude="Development">
 

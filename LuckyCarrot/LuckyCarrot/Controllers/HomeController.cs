@@ -100,5 +100,49 @@ namespace LuckyCarrot.Controllers
             pItems.Total = items.Count();
             return Json(pItems);
         }
+
+        public async Task<ActionResult> ReasonDDL(string searchTerm, int pageSize, int pageNum, int companyId)
+        {
+
+            //List<NameAndIDModel> lst = null;
+            //if (string.IsNullOrEmpty(searchTerm) && pageNum == 1)
+            //{
+            //    var products = await unitOfWork.ProductRepository.GetAll(whiteLabelID, excludeID: excludeID, licenseType: licenseType);
+            //    if (includeAll)
+            //    {
+            //        products.Insert(0, new ProductModel { ID = 0, Title = "All" });
+            //    }
+            //    lst = products.Select(x => new NameAndIDModel { ID = x.ID, Name = x.SubTitle != null ? x.Title + " (" + x.SubTitle + ")" : x.Title }).ToList();
+
+            //    cacheManager.ProductDDL = lst;
+            //}
+            //else
+            //{
+            //    lst = cacheManager.ProductDDL as List<NameAndIDModel>;
+            //}
+
+            var items = await _unitOfWork.PointRepository.GetReasons(companyId);
+
+            //Search
+            if (searchTerm != null)
+                searchTerm = searchTerm.Trim().ToLower();
+
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                items = items.Where(s => s.Name.ToLower().Contains(searchTerm)).ToList();
+            }
+
+            Select2PagedResult pItems = new Select2PagedResult();
+            pItems.Results = items.Skip(pageSize * (pageNum - 1))
+                                        .Take(pageSize)
+                                        .Select(e => new Select2Result
+                                        {
+                                            id = e.Id.ToString(),
+                                            text = e.Name,
+                                        }).ToList();
+
+            pItems.Total = items.Count();
+            return Json(pItems);
+        }
     }
 }
