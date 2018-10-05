@@ -15,5 +15,11 @@ namespace DataAccess.Models
         public DateTimeOffset CreateDate { get; set; }
         public string ImageName { get; set; }
         public bool IsActive { get; set; }
+
+        public int CompanyId { get; set; }
+        public Company Company { get; set; }
+
+        public int Points { get; set; }
+        public int ReceivedPoints { get; set; }
     }
 }

@@ -5,11 +5,16 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using LuckyCarrot.Models;
+using DataAccess.Repositories.Interfaces;
 
 namespace LuckyCarrot.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
+        public HomeController(IUnitOfWork unitOfWork) : base(unitOfWork)
+        {
+        }
+
         public IActionResult Index()
         {
             return View();
