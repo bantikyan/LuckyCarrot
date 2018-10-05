@@ -10,7 +10,7 @@
     <div class="col-md-8">
         <div class="card w-post">
             <div class="card-body">
-                @await Html.PartialAsync("_GivePoints", new DataModels.PointTransferModel())
+                @await Html.PartialAsync("_GivePoints", @Model.NewTransfer)
             </div>
         </div>
 
@@ -28,7 +28,7 @@
                                 @Model.Users.FirstOrDefault(s => s.Key == item.ToUserId).Value
 
                                 <small>
-                                    Posted on   @item.CreateDate.Date.ToString("dd MMM yyyy hh:mm tt")
+                                    Posted on   @item.CreateDate.ToString("dd MMM yyyy hh:mm tt")
                                 </small>
                             </h2>
                         </div>
@@ -37,8 +37,8 @@
 
                 <div class="card-body card-padding">
                     <p>
-                        @item.Points @@@Model.Users[item.FromUserId] "@Model.Reasons[item.ReasonId]"
-                        Note :  @item.Note
+                       Received @item.Points carrots from @@@Model.Users[item.FromUserId] for "@Model.Reasons[item.ReasonId]" <br />
+                   Note: @item.Note
                     </p>
 
 
@@ -46,7 +46,8 @@
                         <div style="background-color: @(colors.OrderBy(p => rand.Next()).FirstOrDefault()); min-height: 200px; color: #fff; padding-top: 20px;">
                             <img src="~/images/carrot.png" />
                             <div style="font-size: 30px;">@item.Points</div>
-                            <div style="vertical-align: middle;">from <span style="font-size: 20px;">@Model.Users[item.FromUserId]</span></div>
+                            @* <div style="vertical-align: middle;">from <span style="font-size: 20px;">@Model.Users[item.FromUserId]</span></div>*@
+                            <div style="vertical-align: middle;font-size: 20px;"> more carrots </div>
                         </div>
                     </div>
 
@@ -100,21 +101,21 @@
     </div>
 
     <div class="col-md-4 hidden-sm hidden-xs">
-            <div class="visitors-stats clearfix" style="color:white">
-                <div class="col-xs-6">
-                    <div class="visitors-stats-item bgm-orange">
-                        <strong>@Model.ActiveUser.ReceivedPoints</strong>
-                        <small>Received Points</small>
-                    </div>
-                </div>
-                <div class="col-xs-6">
-                    <div class="visitors-stats-item bgm-green">
-                        <strong>@Model.ActiveUser.Points</strong>
-                        <small>Points</small>
-                    </div>
+        <div class="visitors-stats clearfix" style="color:white">
+            <div class="col-xs-6">
+                <div class="visitors-stats-item bgm-orange">
+                    <strong>@Model.ActiveUser.ReceivedPoints</strong>
+                    <small>Received Points</small>
                 </div>
             </div>
-       
+            <div class="col-xs-6">
+                <div class="visitors-stats-item bgm-green">
+                    <strong>@Model.ActiveUser.Points</strong>
+                    <small>Points</small>
+                </div>
+            </div>
+        </div>
+
 
         @*<div class="card ca">
                 <div class="card-header  alert-success">
