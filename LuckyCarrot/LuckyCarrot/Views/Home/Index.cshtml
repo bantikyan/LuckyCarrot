@@ -1,94 +1,159 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿
+<div class="row wall">
+    <div class="col-md-8">
+        <div class="card w-post">
+            <div class="card-body">
+                <textarea class="wp-text auto-size" placeholder="Write Something..."></textarea>
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <img src="~/images/banner1.svg" alt="ASP.NET" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    Learn how to build ASP.NET apps that can run anywhere.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525028&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="~/images/banner2.svg" alt="Visual Studio" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    There are powerful new features in Visual Studio for building modern web apps.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525030&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="~/images/banner3.svg" alt="Microsoft Azure" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525027&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div>
-    </div>
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
 
-<div class="row">
-    <div class="col-md-3">
-        <h2>Application uses</h2>
-        <ul>
-            <li>Sample pages using ASP.NET Core MVC</li>
-            <li>Theming using <a href="https://go.microsoft.com/fwlink/?LinkID=398939">Bootstrap</a></li>
-        </ul>
+                <div class="wp-actions clearfix">
+                    <button class="btn btn bgm-deeporange waves-effect btn-md pull-right">Give</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card w-item">
+            <div class="card-header">
+                <div class="media">
+                    <div class="pull-left">
+                        <img class="avatar-img" src="~/images/1.jpg" alt="">
+                    </div>
+
+                    <div class="media-body">
+                        <h2>
+                            Mallinda Hollaway
+                            <small>Posted on 31st Aug 2015 at 07:00</small>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body card-padding">
+                <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce eget dolor id justo luctus commodo vel pharetra nisi. Donec velit libero, gravida vel diam ut, lobortis mollis quam. Morbi posuere egestas posuere. Curabitur in dui sollicitudin, lacinia magna at, laoreet sapien. Integer vitae eros nulla.</p>
+
+                <div class="wi-preview lightbox clearfix">
+                    <img src="~/images/headers4.png"  class="img-responsive"/>
+                    <div class="wip-item" data-src="~/images/headers4.png"
+                         style="background-image: url(~/images/headers4.png);">
+                        <div class="lightbox-item"></div>
+                    </div>
+                </div>
+
+                <div class="wi-stats clearfix">
+                    <div class="wis-numbers">
+                        <span><i class="zmdi zmdi-comments"></i> 36</span>
+                        <span class="active"><i class="zmdi zmdi-favorite"></i> 220</span>
+                    </div>
+
+                    <div class="wis-commentors">
+                        <a href=""><img src="~/images/1.jpg" alt=""></a>
+                        <a href=""><img src="~/images/2.jpg" alt=""></a>
+                        <a href=""><img src="~/images/3.jpg" alt=""></a>
+                        <a href=""><img src="~/images/5.jpg" alt=""></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wi-comments">
+
+                <!-- Comment Listing -->
+                <div class="list-group">
+                    <div class="list-group-item media">
+                        <a href="" class="pull-left">
+                            <img src="~/images/5.jpg" alt="" class="lgi-img">
+                        </a>
+
+                        <div class="media-body">
+                            <a href="" class="lgi-heading">David Nathan <small class="c-gray m-l-10">3 mins ago...</small></a>
+
+                            <small class="lgi-text">Maecenas dignissim in neque id commodo. Nam pretium a tortor a convallis. Curabitur in arcu quis nulla aliquam condimentum. Morbi eu cursus diam, vitae tristique dui.</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comment form -->
+                <div class="wic-form">
+                    <textarea placeholder="Write something..." data-ma-action="wall-comment-open"></textarea>
+
+                    <div class="wicf-actions text-right">
+                        <button class="btn btn-sm btn-link" data-ma-action="wall-comment-close">Cancel</button>
+                        <button class="btn btn-sm btn-primary">Post</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-3">
-        <h2>How to</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398600">Add a Controller and View</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699315">Manage User Secrets using Secret Manager.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699316">Use logging to log a message.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Add packages using NuGet.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699319">Target development, staging or production environment.</a></li>
-        </ul>
-    </div>
-    <div class="col-md-3">
-        <h2>Overview</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=518008">Conceptual overview of what is ASP.NET Core</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699320">Fundamentals of ASP.NET Core such as Startup and middleware.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=398602">Working with Data</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=398603">Security</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699321">Client side development</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699322">Develop on different platforms</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699323">Read more on the documentation site</a></li>
-        </ul>
-    </div>
-    <div class="col-md-3">
-        <h2>Run &amp; Deploy</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517851">Run your app</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517853">Run tools such as EF migrations and more</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
-        </ul>
+
+    <div class="col-md-4 hidden-sm hidden-xs">
+        <div class="card">
+            <div class="card-header">
+                <h2>About me</h2>
+            </div>
+
+            <div class="card-body card-padding">
+                Maecenas malesuada. Nam adipiscing. Etiam vitae tortor. Maecenas ullamcorper, dui et
+                placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. <a data-ui-sref="pages.profile.profile-about">
+                    <small>Read more...</small>
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2>
+                    Recent Comments
+                    <small>Commodo vel pharetra nisi. Donec velit libero</small>
+                </h2>
+            </div>
+
+            <div class="list-group">
+                <a class="list-group-item media" href="">
+                    <div class="pull-left">
+                        <img class="lgi-img" src="~/images/1.jpg" alt="">
+                    </div>
+                    <div class="media-body">
+                        <div class="lgi-heading">David Belle</div>
+                        <small class="lgi-text">Cum sociis natoque penatibus et magnis dis parturient montes</small>
+                    </div>
+                </a>
+                <a class="list-group-item media" href="">
+                    <div class="pull-left">
+                        <img class="lgi-img" src="~/images/2.jpg" alt="">
+                    </div>
+                    <div class="media-body">
+                        <div class="lgi-heading">Jonathan Morris</div>
+                        <small class="lgi-text">Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</small>
+                    </div>
+                </a>
+                <a class="list-group-item media" href="">
+                    <div class="pull-left">
+                        <img class="lgi-img" src="~/images/3.jpg" alt="">
+                    </div>
+                    <div class="media-body">
+                        <div class="lgi-heading">Fredric Mitchell Jr.</div>
+                        <small class="lgi-text">Phasellus a ante et est ornare accumsan at vel magnauis blandit turpis at augue ultricies</small>
+                    </div>
+                </a>
+                <a class="list-group-item media" href="">
+                    <div class="pull-left">
+                        <img class="lgi-img" src="~/images/4.jpg" alt="">
+                    </div>
+                    <div class="media-body">
+                        <div class="lgi-heading">Glenn Jecobs</div>
+                        <small class="lgi-text">Ut vitae lacus sem ellentesque maximus, nunc sit amet varius dignissim, dui est consectetur neque</small>
+                    </div>
+                </a>
+                <a class="list-group-item media" href="">
+                    <div class="pull-left">
+                        <img class="lgi-img" src="~/images/4.jpg" alt="">
+                    </div>
+                    <div class="media-body">
+                        <div class="lgi-heading">Bill Phillips</div>
+                        <small class="lgi-text">Proin laoreet commodo eros id faucibus. Donec ligula quam, imperdiet vel ante placerat</small>
+                    </div>
+                </a>
+                <a class="view-more" href="">View All</a>
+            </div>
+        </div>
     </div>
 </div>
