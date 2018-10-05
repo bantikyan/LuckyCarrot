@@ -30,5 +30,6 @@ namespace DataAccess
 
         public DbSet<Company> Companies { get; set; }
         public DbSet<Reason> Reasons { get; set; }
+        public DbSet<PointTransfer> PointTransfers { get; set; }
     }
 }
