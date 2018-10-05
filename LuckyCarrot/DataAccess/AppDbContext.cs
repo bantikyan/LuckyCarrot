@@ -27,5 +27,8 @@ namespace DataAccess
             builder.Entity<IdentityUserLogin<int>>().ToTable("UserLogins");
             builder.Entity<IdentityUserToken<int>>().ToTable("UserTokens");
         }
+
+        public DbSet<Company> Companies { get; set; }
+        public DbSet<Reason> Reasons { get; set; }
     }
 }
