@@ -1,0 +1,32 @@
+﻿@model DataModels.PointTransferModel
+
+<form asp-action="GivePoints" method="post">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-3">
+                <input asp-for="Points" type="number" class="form-control" />
+            </div>
+            <div class="col-md-3" style="padding-top:10px">
+                <select asp-for="ToUserId" id="UserId" name="UserId" class="form-control singleselect remote" placeholder="Select User"
+                        data-url="@Url.Action("UserDDL", "Home")"
+                        data-param-companyId="1"></select>
+            </div>
+
+            <div class="col-md-3" style="padding-top:10px">
+                <select asp-for="ReasonId" id="ReasonId" name="ReasonId" class="form-control singleselect remote" placeholder="Select Reason"
+                        data-url="@Url.Action("ReasonDDL", "Home")"
+                        data-param-companyId="1"></select>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <textarea asp-for="Note" class="wp-text auto-size" placeholder="Write Something..."></textarea>
+
+    <div class="wp-actions clearfix">
+        <button type="submit" class="btn btn bgm-deeporange waves-effect btn-md pull-right">Give</button>
+    </div>
+</form>

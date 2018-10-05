@@ -7,153 +7,223 @@
     <div class="col-md-8">
         <div class="card w-post">
             <div class="card-body">
-                <textarea class="wp-text auto-size" placeholder="Write Something..."></textarea>
+
+                @await Html.PartialAsync("_GivePoints", new DataModels.PointTransferModel())
 
 
-                <div class="wp-actions clearfix">
-                    <button class="btn btn bgm-deeporange waves-effect btn-md pull-right">Give</button>
-                </div>
+
             </div>
         </div>
 
-        <div class="card w-item">
-            <div class="card-header">
-                <div class="media">
-                    <div class="pull-left">
-                        <img class="avatar-img" src="~/images/1.jpg" alt="">
-                    </div>
-
-                    <div class="media-body">
-                        <h2>
-                            Mallinda Hollaway
-                            <small>Posted on 31st Aug 2015 at 07:00</small>
-                        </h2>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-body card-padding">
-                <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce eget dolor id justo luctus commodo vel pharetra nisi. Donec velit libero, gravida vel diam ut, lobortis mollis quam. Morbi posuere egestas posuere. Curabitur in dui sollicitudin, lacinia magna at, laoreet sapien. Integer vitae eros nulla.</p>
-
-                <div class="wi-preview lightbox clearfix">
-                    <img src="~/images/headers4.png"  class="img-responsive"/>
-                    <div class="wip-item" data-src="~/images/headers4.png"
-                         style="background-image: url(~/images/headers4.png);">
-                        <div class="lightbox-item"></div>
-                    </div>
-                </div>
-
-                <div class="wi-stats clearfix">
-                    <div class="wis-numbers">
-                        <span><i class="zmdi zmdi-comments"></i> 36</span>
-                        <span class="active"><i class="zmdi zmdi-favorite"></i> 220</span>
-                    </div>
-
-                    <div class="wis-commentors">
-                        <a href=""><img src="~/images/1.jpg" alt=""></a>
-                        <a href=""><img src="~/images/2.jpg" alt=""></a>
-                        <a href=""><img src="~/images/3.jpg" alt=""></a>
-                        <a href=""><img src="~/images/5.jpg" alt=""></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="wi-comments">
-
-                <!-- Comment Listing -->
-                <div class="list-group">
-                    <div class="list-group-item media">
-                        <a href="" class="pull-left">
-                            <img src="~/images/5.jpg" alt="" class="lgi-img">
-                        </a>
+        @foreach (var item in Model.PointTransfers)
+        {
+            <div class="card w-item">
+                <div class="card-header">
+                    <div class="media">
+                        <div class="pull-left">
+                            <img class="avatar-img" src="~/images/1.jpg" alt="">
+                        </div>
 
                         <div class="media-body">
-                            <a href="" class="lgi-heading">David Nathan <small class="c-gray m-l-10">3 mins ago...</small></a>
+                            <h2>
+                                @Model.Users.FirstOrDefault(s => s.Key == item.ToUserId).Value
 
-                            <small class="lgi-text">Maecenas dignissim in neque id commodo. Nam pretium a tortor a convallis. Curabitur in arcu quis nulla aliquam condimentum. Morbi eu cursus diam, vitae tristique dui.</small>
+                                <small>
+                                    Posted on   @item.CreateDate.Date.ToString("dd MMM yyyy hh:mm tt")
+                                </small>
+                            </h2>
                         </div>
                     </div>
                 </div>
 
-                <!-- Comment form -->
-                <div class="wic-form">
-                    <textarea placeholder="Write something..." data-ma-action="wall-comment-open"></textarea>
+                <div class="card-body card-padding">
+                    <p>
+                        @item.Points @@@Model.Users.FirstOrDefault(s => s.Key == item.FromUserId).Value "@Model.Reasons.FirstOrDefault(s => s.Key == item.ReasonId).Value"
+                        Note :  @item.Note
+                    </p>
 
-                    <div class="wicf-actions text-right">
-                        <button class="btn btn-sm btn-link" data-ma-action="wall-comment-close">Cancel</button>
-                        <button class="btn btn-sm btn-primary">Post</button>
+                    <div class="wi-preview lightbox clearfix">
+                        <img src="~/images/headers4.png" class="img-responsive" />
+                        @*<div class="wip-item" data-src="~/images/headers4.png"
+                                 style="background-image: url(~/images/headers4.png);">
+                                <div class="lightbox-item"></div>
+                            </div>*@
+                        /**/
+                    </div>
+
+                    <div class="wi-stats clearfix">
+                        <div class="wis-numbers">
+                            <span><i class="zmdi zmdi-comments"></i> 36</span>
+                            <span class="active"><i class="zmdi zmdi-favorite"></i> 220</span>
+                        </div>
+
+                        <div class="wis-commentors">
+                            <a href=""><img src="~/images/1.jpg" alt=""></a>
+                            <a href=""><img src="~/images/2.jpg" alt=""></a>
+                            <a href=""><img src="~/images/3.jpg" alt=""></a>
+                            <a href=""><img src="~/images/5.jpg" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wi-comments">
+
+                    <!-- Comment Listing -->
+                    <div class="list-group">
+                        <div class="list-group-item media">
+                            <a href="" class="pull-left">
+                                <img src="~/images/5.jpg" alt="" class="lgi-img">
+                            </a>
+
+                            <div class="media-body">
+                                <a href="" class="lgi-heading">David Nathan <small class="c-gray m-l-10">3 mins ago...</small></a>
+
+                                <small class="lgi-text">Maecenas dignissim in neque id commodo. Nam pretium a tortor a convallis. Curabitur in arcu quis nulla aliquam condimentum. Morbi eu cursus diam, vitae tristique dui.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Comment form -->
+                    <div class="wic-form">
+                        <textarea placeholder="Write something..." data-ma-action="wall-comment-open"></textarea>
+
+                        <div class="wicf-actions text-right">
+                            <button class="btn btn-sm btn-link" data-ma-action="wall-comment-close">Cancel</button>
+                            <button class="btn btn-sm btn-primary">Post</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        }
+
     </div>
 
     <div class="col-md-4 hidden-sm hidden-xs">
-        <div class="card">
-            <div class="card-header">
-                <h2>About me</h2>
-            </div>
-
-            <div class="card-body card-padding">
-                Maecenas malesuada. Nam adipiscing. Etiam vitae tortor. Maecenas ullamcorper, dui et
-                placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. <a data-ui-sref="pages.profile.profile-about">
-                    <small>Read more...</small>
-                </a>
+        <div class="card ca">
+            <div class="card-header  alert-success">
+                <h2 style="color:white">13 bonuses received  </h2>
             </div>
         </div>
 
         <div class="card">
             <div class="card-header">
                 <h2>
-                    Recent Comments
-                    <small>Commodo vel pharetra nisi. Donec velit libero</small>
+                    Received bonuses from
                 </h2>
             </div>
 
             <div class="list-group">
                 <a class="list-group-item media" href="">
-                    <div class="pull-left">
-                        <img class="lgi-img" src="~/images/1.jpg" alt="">
-                    </div>
-                    <div class="media-body">
-                        <div class="lgi-heading">David Belle</div>
-                        <small class="lgi-text">Cum sociis natoque penatibus et magnis dis parturient montes</small>
-                    </div>
-                </a>
-                <a class="list-group-item media" href="">
-                    <div class="pull-left">
-                        <img class="lgi-img" src="~/images/2.jpg" alt="">
-                    </div>
-                    <div class="media-body">
-                        <div class="lgi-heading">Jonathan Morris</div>
-                        <small class="lgi-text">Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</small>
-                    </div>
-                </a>
-                <a class="list-group-item media" href="">
-                    <div class="pull-left">
-                        <img class="lgi-img" src="~/images/3.jpg" alt="">
-                    </div>
-                    <div class="media-body">
-                        <div class="lgi-heading">Fredric Mitchell Jr.</div>
-                        <small class="lgi-text">Phasellus a ante et est ornare accumsan at vel magnauis blandit turpis at augue ultricies</small>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="pull-left">
+                                <img class="lgi-img" src="~/images/1.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="media-body">
+                                <div class="lgi-heading">David Belle</div>
+                                <small class="lgi-text">Cum sociis natoque penatibus et magnis dis parturient montes</small>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class=" media-body pull-right">
+                                <p>
+                                    <strong> 10</strong>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </a>
                 <a class="list-group-item media" href="">
-                    <div class="pull-left">
-                        <img class="lgi-img" src="~/images/4.jpg" alt="">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="pull-left">
+                                <img class="lgi-img" src="~/images/2.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="media-body">
+                                <div class="lgi-heading">Jonathan Morris</div>
+                                <small class="lgi-text">Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</small>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class=" media-body pull-right">
+                                <p>
+                                    <strong>  2</strong>
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="media-body">
-                        <div class="lgi-heading">Glenn Jecobs</div>
-                        <small class="lgi-text">Ut vitae lacus sem ellentesque maximus, nunc sit amet varius dignissim, dui est consectetur neque</small>
+
+
+
+                </a>
+                <a class="list-group-item media" href="">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="pull-left">
+                                <img class="lgi-img" src="~/images/3.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="media-body">
+                                <div class="lgi-heading">Fredric Mitchell Jr.</div>
+                                <small class="lgi-text">Phasellus a ante et est ornare accumsan at vel magnauis blandit turpis at augue ultricies</small>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class=" media-body pull-right">
+                                <p>
+                                    <strong>  2</strong>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </a>
                 <a class="list-group-item media" href="">
-                    <div class="pull-left">
-                        <img class="lgi-img" src="~/images/4.jpg" alt="">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="pull-left">
+                                <img class="lgi-img" src="~/images/4.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="media-body">
+                                <div class="lgi-heading">Glenn Jecobs</div>
+                                <small class="lgi-text">Ut vitae lacus sem ellentesque maximus, nunc sit amet varius dignissim, dui est consectetur neque</small>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class=" media-body pull-right">
+                                <p>
+                                    <strong> 20</strong>
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="media-body">
-                        <div class="lgi-heading">Bill Phillips</div>
-                        <small class="lgi-text">Proin laoreet commodo eros id faucibus. Donec ligula quam, imperdiet vel ante placerat</small>
+                </a>
+                <a class="list-group-item media" href="">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="pull-left">
+                                <img class="lgi-img" src="~/images/5.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="media-body">
+                                <div class="lgi-heading">Bill Philips</div>
+                                <small class="lgi-text">Proin laoreet commodo eros id faucibus. Donec ligula quam, imperdiet vel ante placerat</small>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class=" media-body pull-right">
+                                <p>
+                                    <strong>  15</strong>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </a>
                 <a class="view-more" href="">View All</a>

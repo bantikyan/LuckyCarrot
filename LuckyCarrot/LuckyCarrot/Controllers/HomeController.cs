@@ -144,5 +144,16 @@ namespace LuckyCarrot.Controllers
             pItems.Total = items.Count();
             return Json(pItems);
         }
+
+        public IActionResult Redeem()
+        {
+
+            return View();
+        }
+        public IActionResult MyProfile()
+        {
+
+            return View();
+        }
     }
 }

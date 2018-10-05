@@ -9,6 +9,8 @@ namespace DataModels
         public List<PointTransferModel> PointTransfers { get; set; }
         public Dictionary<int, string> Users { get; set; }
         public Dictionary<int, string> Reasons { get; set; }
+        public PointTransferModel NewTransfer { get; set; }
+
 
     }
 }
