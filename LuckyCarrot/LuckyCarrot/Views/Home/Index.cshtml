@@ -10,7 +10,7 @@
     <div class="col-md-8">
         <div class="card w-post">
             <div class="card-body">
-                @await Html.PartialAsync("_GivePoints", Model.NewTransfer)
+                @await Html.PartialAsync("_GivePoints", new DataModels.PointTransferModel())
             </div>
         </div>
 
@@ -53,7 +53,9 @@
                     <div class="wi-stats clearfix">
                         <div class="wis-numbers">
                             <span><i class="zmdi zmdi-comments"></i> 36</span>
-                            <span class="active"><i class="zmdi zmdi-favorite"></i> 220</span>
+                            <span class="success">
+                                <img src="~/images/carrotSmall.png" />  220
+                            </span>
                         </div>
 
                         <div class="wis-commentors">
@@ -98,11 +100,27 @@
     </div>
 
     <div class="col-md-4 hidden-sm hidden-xs">
-        <div class="card ca">
-            <div class="card-header  alert-success">
-                <h2 style="color:white">13 bonuses received  </h2>
+            <div class="visitors-stats clearfix" style="color:white">
+                <div class="col-xs-6">
+                    <div class="visitors-stats-item bgm-orange">
+                        <strong>@Model.ActiveUser.ReceivedPoints</strong>
+                        <small>Received Points</small>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="visitors-stats-item bgm-green">
+                        <strong>@Model.ActiveUser.Points</strong>
+                        <small>Points</small>
+                    </div>
+                </div>
             </div>
-        </div>
+       
+
+        @*<div class="card ca">
+                <div class="card-header  alert-success">
+                    <h2 style="color:white">13 bonuses received  </h2>
+                </div>
+            </div>*@
 
         <div class="card">
             <div class="card-header">
@@ -119,17 +137,17 @@
                                 <img class="lgi-img" src="~/images/1.jpg" alt="">
                             </div>
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-md-7">
                             <div class="media-body">
                                 <div class="lgi-heading">David Belle</div>
                                 <small class="lgi-text">Cum sociis natoque penatibus et magnis dis parturient montes</small>
                             </div>
                         </div>
-                        <div class="col-md-1">
+                        <div class="col-md-3">
                             <div class=" media-body pull-right">
-                                <p>
-                                    <strong> 10</strong>
-                                </p>
+                                <span class="success">
+                                    <img src="~/images/carrotSmall.png" />  <strong>  100</strong>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -141,17 +159,17 @@
                                 <img class="lgi-img" src="~/images/2.jpg" alt="">
                             </div>
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-md-7">
                             <div class="media-body">
                                 <div class="lgi-heading">Jonathan Morris</div>
                                 <small class="lgi-text">Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</small>
                             </div>
                         </div>
-                        <div class="col-md-1">
+                        <div class="col-md-3">
                             <div class=" media-body pull-right">
-                                <p>
-                                    <strong>  2</strong>
-                                </p>
+                                <span class="success">
+                                    <img src="~/images/carrotSmall.png" />  <strong>15</strong>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -166,17 +184,17 @@
                                 <img class="lgi-img" src="~/images/3.jpg" alt="">
                             </div>
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-md-7">
                             <div class="media-body">
                                 <div class="lgi-heading">Fredric Mitchell Jr.</div>
                                 <small class="lgi-text">Phasellus a ante et est ornare accumsan at vel magnauis blandit turpis at augue ultricies</small>
                             </div>
                         </div>
-                        <div class="col-md-1">
+                        <div class="col-md-3">
                             <div class=" media-body pull-right">
-                                <p>
-                                    <strong>  2</strong>
-                                </p>
+                                <span class="success">
+                                    <img src="~/images/carrotSmall.png" />  <strong>  20</strong>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -188,17 +206,17 @@
                                 <img class="lgi-img" src="~/images/4.jpg" alt="">
                             </div>
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-md-7">
                             <div class="media-body">
                                 <div class="lgi-heading">Glenn Jecobs</div>
                                 <small class="lgi-text">Ut vitae lacus sem ellentesque maximus, nunc sit amet varius dignissim, dui est consectetur neque</small>
                             </div>
                         </div>
-                        <div class="col-md-1">
+                        <div class="col-md-3">
                             <div class=" media-body pull-right">
-                                <p>
-                                    <strong> 20</strong>
-                                </p>
+                                <span class="success">
+                                    <img src="~/images/carrotSmall.png" />  <strong>  80</strong>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -210,17 +228,17 @@
                                 <img class="lgi-img" src="~/images/5.jpg" alt="">
                             </div>
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-md-7">
                             <div class="media-body">
                                 <div class="lgi-heading">Bill Philips</div>
                                 <small class="lgi-text">Proin laoreet commodo eros id faucibus. Donec ligula quam, imperdiet vel ante placerat</small>
                             </div>
                         </div>
-                        <div class="col-md-1">
+                        <div class="col-md-3">
                             <div class=" media-body pull-right">
-                                <p>
-                                    <strong>  15</strong>
-                                </p>
+                                <span class="success">
+                                    <img src="~/images/carrotSmall.png" />  <strong>  50</strong>
+                                </span>
                             </div>
                         </div>
                     </div>

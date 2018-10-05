@@ -31,6 +31,7 @@ namespace LuckyCarrot.Controllers
 
             model.NewTransfer = new PointTransferModel { CompanyId = companyID, FromUserId = 2 };
 
+            model.ActiveUser = users.FirstOrDefault(s => s.Id == 2);
             return View(model);
         }
 
