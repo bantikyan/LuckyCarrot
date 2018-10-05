@@ -2,19 +2,20 @@
 
 <form asp-action="GivePoints" method="post">
     <div class="container">
-
+        <input type="hidden" asp-for="CompanyId" />
+        <input type="hidden" asp-for="FromUserId" />
         <div class="row">
             <div class="col-md-3">
                 <input asp-for="Points" type="number" class="form-control" />
             </div>
             <div class="col-md-3" style="padding-top:10px">
-                <select asp-for="ToUserId" id="UserId" name="UserId" class="form-control singleselect remote" placeholder="Select User"
+                <select id="ToUserId" name="ToUserId" class="form-control singleselect remote" placeholder="Select User"
                         data-url="@Url.Action("UserDDL", "Home")"
                         data-param-companyId="1"></select>
             </div>
 
             <div class="col-md-3" style="padding-top:10px">
-                <select asp-for="ReasonId" id="ReasonId" name="ReasonId" class="form-control singleselect remote" placeholder="Select Reason"
+                <select id="ReasonId" name="ReasonId" class="form-control singleselect remote" placeholder="Select Reason"
                         data-url="@Url.Action("ReasonDDL", "Home")"
                         data-param-companyId="1"></select>
             </div>

@@ -7,11 +7,7 @@
     <div class="col-md-8">
         <div class="card w-post">
             <div class="card-body">
-
-                @await Html.PartialAsync("_GivePoints", new DataModels.PointTransferModel())
-
-
-
+                @await Html.PartialAsync("_GivePoints", Model.NewTransfer)
             </div>
         </div>
 

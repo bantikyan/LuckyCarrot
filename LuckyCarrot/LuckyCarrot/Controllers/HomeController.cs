@@ -29,7 +29,20 @@ namespace LuckyCarrot.Controllers
             model.Reasons = reasons.ToDictionary(p => p.Id, pp => pp.Name);
             model.Users = users.ToDictionary(p => p.Id, pp => pp.FirstName + " " + pp.LastName);
 
+            model.NewTransfer = new PointTransferModel { CompanyId = companyID, FromUserId = 2 };
+
             return View(model);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> GivePoints(PointTransferModel model)
+        {
+            model.CreateDate = DateTimeOffset.Now;
+
+            await _unitOfWork.PointRepository.Give(model);
+
+            //return Json(new {  })
+            return RedirectToAction("Index");
         }
 
         public IActionResult About()
@@ -59,7 +72,7 @@ namespace LuckyCarrot.Controllers
 
         public async Task<ActionResult> UserDDL(string searchTerm, int pageSize, int pageNum, int companyId)
         {
-
+            int activeUserId = 2;
             //List<NameAndIDModel> lst = null;
             //if (string.IsNullOrEmpty(searchTerm) && pageNum == 1)
             //{
@@ -89,7 +102,7 @@ namespace LuckyCarrot.Controllers
             }
 
             Select2PagedResult pItems = new Select2PagedResult();
-            pItems.Results = items.Skip(pageSize * (pageNum - 1))
+            pItems.Results = items.Where(p => p.Id != activeUserId).Skip(pageSize * (pageNum - 1))
                                         .Take(pageSize)
                                         .Select(e => new Select2Result
                                         {
