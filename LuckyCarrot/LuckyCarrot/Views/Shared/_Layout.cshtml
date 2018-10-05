@@ -14,15 +14,7 @@
 <section id="main">
     @await Html.PartialAsync("_Navigation")
     <section id="content">
-        <select id="UserId" name="UserId" class="form-control singleselect remote" placeholder="Select User"
-                data-url="@Url.Action("UserDDL", "Home")"
-                data-param-companyId="1">
-        </select>
-
-        <select id="ReasonId" name="ReasonId" class="form-control singleselect remote" placeholder="Select Reason"
-                data-url="@Url.Action("ReasonDDL", "Home")"
-                data-param-companyId="1">
-        </select>
+       
 
         @RenderBody()
     </section>

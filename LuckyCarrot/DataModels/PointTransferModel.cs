@@ -12,6 +12,7 @@ namespace DataModels
         public int ToUserId { get; set; }
         public int ReasonId { get; set; }
         public int Points { get; set; }
+        public string  Note { get; set; }
         public DateTimeOffset CreateDate { get; set; }
     }
 }
