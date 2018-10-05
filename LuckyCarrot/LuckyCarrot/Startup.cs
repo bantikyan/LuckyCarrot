@@ -61,7 +61,7 @@ namespace LuckyCarrot
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider serviceProvider, IUnitOfWork unitOfWork)
         {
-            CreateRoles(serviceProvider).Wait();
+            //CreateRoles(serviceProvider).Wait();
 
             if (env.IsDevelopment())
             {
@@ -88,23 +88,23 @@ namespace LuckyCarrot
             });
         }
 
-        private async Task CreateRoles(IServiceProvider serviceProvider)
-        {
-            //initializing custom roles 
-            var RoleManager = serviceProvider.GetRequiredService<RoleManager<Role>>();
-            var UserManager = serviceProvider.GetRequiredService<UserManager<User>>();
-            string[] roleNames = { "Admin", "User" };
-            IdentityResult roleResult;
+        //private async Task CreateRoles(IServiceProvider serviceProvider)
+        //{
+        //    //initializing custom roles 
+        //    var RoleManager = serviceProvider.GetRequiredService<RoleManager<Role>>();
+        //    var UserManager = serviceProvider.GetRequiredService<UserManager<User>>();
+        //    string[] roleNames = { "Admin", "User" };
+        //    IdentityResult roleResult;
 
-            foreach (var roleName in roleNames)
-            {
-                var roleExist = await RoleManager.RoleExistsAsync(roleName);
-                if (!roleExist)
-                {
-                    //create the roles and seed them to the database: Question 1
-                    roleResult = await RoleManager.CreateAsync(new Role(roleName));
-                }
-            }
-        }
+        //    foreach (var roleName in roleNames)
+        //    {
+        //        var roleExist = await RoleManager.RoleExistsAsync(roleName);
+        //        if (!roleExist)
+        //        {
+        //            //create the roles and seed them to the database: Question 1
+        //            roleResult = await RoleManager.CreateAsync(new Role(roleName));
+        //        }
+        //    }
+        //}
     }
 }

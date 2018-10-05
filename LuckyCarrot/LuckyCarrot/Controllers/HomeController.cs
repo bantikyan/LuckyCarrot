@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using LuckyCarrot.Models;
 using DataAccess.Repositories.Interfaces;
+using DataModels;
 
 namespace LuckyCarrot.Controllers
 {
@@ -15,9 +16,20 @@ namespace LuckyCarrot.Controllers
         {
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            int companyID = 1;
+
+            var model = new WallModel();
+            model.PointTransfers = await _unitOfWork.PointRepository.GetTransfers(companyID);
+
+            var reasons = await _unitOfWork.PointRepository.GetReasons(companyID);
+            var users = await _unitOfWork.UserRepository.Get(companyID);
+
+            model.Reasons = reasons.ToDictionary(p => p.Id, pp => pp.Name);
+            model.Users = users.ToDictionary(p => p.Id, pp => pp.FirstName + " " + pp.LastName);
+
+            return View(model);
         }
 
         public IActionResult About()
