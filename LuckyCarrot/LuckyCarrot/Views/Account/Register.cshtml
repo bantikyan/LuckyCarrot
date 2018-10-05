@@ -1,0 +1,84 @@
+﻿@using System.Collections.Generic
+@using System.Linq
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Http.Authentication
+@model DataModels.RegisterModel
+@inject Microsoft.AspNetCore.Identity.SignInManager<DataAccess.Models.User> SignInManager
+@{
+    ViewData["Title"] = "Register";
+    //Layout = "~/Views/Shared/_LayoutBase.cshtml";
+}
+
+<div class="bg-full-page hero-bg-dark hero-img-back back-fixed">
+    <div class="container">
+        <div class="absolute-center">
+            <div class="card card-primary card-hero">
+                <div class="card-header card-header-primary">
+                    <h4 class="pt-2 pb-4"> Registration</h4>
+                </div>
+                <div class="card-block">
+                    <h6 class="color-primary pb-3 fw-100"> Or </h6>
+                    <form id="formRegister" class="form-horizontal" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <fieldset class="p-4">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input asp-for="FirstName" class="form-control" placeholder="First Name">
+                                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input asp-for="LastName" class="form-control" placeholder="Last Name">
+                                    <span asp-validation-for="LastName" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input asp-for="Email" class="form-control" placeholder="Email">
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input asp-for="Password" class="form-control" placeholder="Password">
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm Password">
+                                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                </div>
+                            </div>
+      
+                            <div class="row pt-4">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-raised btn-primary btn-block">
+                                        Register Now
+                                        <i class="fas fa-arrow-right no-mr ml-1"></i>
+                                    </button>
+                                </div>
+                                <div class="col-md-6">
+                                    <a class="btn btn-secondary btn-block" asp-controller="Account" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" >
+                                        <i class="fas fa-user-alt mr-1"></i> Login
+                                    </a>
+                                </div>
+                            </div>
+
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div class="text-center p-4">
+                <a asp-action="Index" asp-controller="Home" class="color-white mr-2">
+                    <i class="fas fa-home"></i> Go Home
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts {
+    <script src="~/js/custom/account.js"></script>
+}

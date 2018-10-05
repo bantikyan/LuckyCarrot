@@ -18,6 +18,32 @@ namespace DataAccess.Repositories
             _mapper = mapper;
         }
 
+        private IUserRepository userRepository;
+        public IUserRepository UserRepository
+        {
+            get
+            {
+                if (userRepository == null)
+                {
+                    userRepository = new UserRepository(_context, _mapper);
+                }
+                return userRepository;
+            }
+        }
+
+        private IPointRepository pointRepository;
+        public IPointRepository PointRepository
+        {
+            get
+            {
+                if (pointRepository == null)
+                {
+                    pointRepository = new PointRepository(_context, _mapper);
+                }
+                return pointRepository;
+            }
+        }
+
         #region Dispose
 
         private bool disposed = false;

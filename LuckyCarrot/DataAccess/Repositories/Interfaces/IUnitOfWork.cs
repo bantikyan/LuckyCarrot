@@ -6,5 +6,7 @@ namespace DataAccess.Repositories.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {
+        IUserRepository UserRepository { get; }
+        IPointRepository PointRepository { get; }
     }
 }
