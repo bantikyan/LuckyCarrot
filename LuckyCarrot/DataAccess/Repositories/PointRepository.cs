@@ -46,6 +46,13 @@ namespace DataAccess.Repositories
         {
             var item = new PointTransfer();
             _mapper.Map(model, item);
+            _context.PointTransfers.Add(item);
+
+            var fromUser = await _context.Users.SingleOrDefaultAsync(p => p.Id == model.FromUserId);
+            fromUser.Points -= model.Points;
+
+            var toUser = await _context.Users.SingleOrDefaultAsync(p => p.Id == model.ToUserId);
+            toUser.ReceivedPoints += model.Points;
 
             await _context.SaveChangesAsync();
         }
