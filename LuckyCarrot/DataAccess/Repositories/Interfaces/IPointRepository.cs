@@ -10,5 +10,6 @@ namespace DataAccess.Repositories.Interfaces
     {
         Task<List<PointTransferModel>> GetTransfers(int companyId);
         Task<List<ReasonModel>> GetReasons(int companyId);
+        Task Give(PointTransferModel model);
     }
 }

@@ -41,5 +41,13 @@ namespace DataAccess.Repositories
 
             return items;
         }
+
+        public async Task Give(PointTransferModel model)
+        {
+            var item = new PointTransfer();
+            _mapper.Map(model, item);
+
+            await _context.SaveChangesAsync();
+        }
     }
 }

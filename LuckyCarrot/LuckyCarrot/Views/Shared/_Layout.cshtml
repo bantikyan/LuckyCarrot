@@ -3,7 +3,8 @@
 }
 @section css {
     <environment include="Development">
-
+        <link href="~/css/select2.css" rel="stylesheet" />
+        <link href="~/css/select2-materialize.css" rel="stylesheet" />
     </environment>
     <environment exclude="Development">
 
@@ -15,25 +16,31 @@
 <section id="main">
     @await Html.PartialAsync("_Navigation")
     <section id="content">
+        <select id="UserId" name="UserId" class="form-control singleselect remote" placeholder="Select User"
+                data-url="@Url.Action("UserDDL", "Home")"
+                data-param-companyId="1"></select>
         @RenderBody()
     </section>
 </section>
 
 @*<div class="page-loader">
-    <div class="preloader pls-blue">
-        <svg class="pl-circular" viewBox="25 25 50 50">
-            <circle class="plc-path" cx="50" cy="50" r="20" />
-        </svg>
+        <div class="preloader pls-blue">
+            <svg class="pl-circular" viewBox="25 25 50 50">
+                <circle class="plc-path" cx="50" cy="50" r="20" />
+            </svg>
 
-        <p>Please wait...</p>
-    </div>
-</div>*@
+            <p>Please wait...</p>
+        </div>
+    </div>*@
+
+
+
 @await Html.PartialAsync("_Footer")
 
 @section scripts {
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <environment include="Development">
-
+        
     </environment>
     <environment exclude="Development">
 
